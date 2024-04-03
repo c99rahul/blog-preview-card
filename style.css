@@ -1,0 +1,299 @@
+:root {
+  --leading__global: 1.5;
+  --size__global: 100%;
+  --size__card-title: 1.25rem;
+  --size__card-description: 0.875rem;
+  --size__card-meta: 0.75rem;
+  --size__card-author: 0.875rem;
+  --size__attribution: 0.75rem;
+
+  --font-stack__global: "Figtree", sans-serif;
+
+  --inner-spacing__container: 1.5rem;
+  --inner-spacing__card: 1.5rem;
+  --outer-spacing__card: -1.5rem;
+  --inner-spacing__card-meta__inline: 0.75rem;
+  --inner-spacing__card-meta__block: 0.25rem;
+  --inner-spacing__attribution: 1.5em;
+
+  --gap__card-section: 1.5rem;
+  --gap__card-block: 0.75rem;
+
+  --width__card: 24rem;
+  --height__card-cover: 200px;
+
+  --radius__card: 1.25rem;
+  --radius__card-cover: 0.625rem;
+  --radius__tag: 0.25rem;
+  --radius__avatar: 50%;
+
+  --shadow__card: 0.5rem 0.5rem 0 0 var(--color__secondary__black);
+  --shadow__card__hover: 1rem 1rem 0 0 var(--color__secondary__black);
+  --transition__card: box-shadow 100ms ease-in-out;
+  --transition__card-cover: margin 100ms ease-in-out;
+  --transition__card-cover-img: border-radius 250ms ease-in-out;
+  --transition__card-title: color 100ms ease-in-out;
+  --transition__attribution: opacity 100ms ease-in-out;
+
+  --color__primary__yellow: hsl(45 86 62);
+  --color__primary__white: hsl(0 0 100);
+  --color__secondary__gray: hsl(0 0 51);
+  --color__secondary__black: hsl(0 0 20);
+
+  --opacity__attribution: 50%;
+
+  font-size: var(--size__global);
+}
+
+/* Font setup */
+@font-face {
+  font-family: "Figtree";
+  font-weight: 500 800;
+  font-display: swap;
+  src: url(assets/fonts/Figtree-VariableFont_wght.ttf) format("truetype");
+}
+
+/*
+ * Basic reset
+ * @link https://github.com/c99rahul/base-css
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body,
+div,
+span,
+header,
+main,
+footer,
+article,
+aside,
+section,
+nav,
+p,
+blockquote,
+pre,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+abbr,
+acronym,
+cite,
+code,
+dfn,
+em,
+q,
+strong,
+samp,
+var,
+time,
+mark,
+small,
+del,
+ins,
+sub,
+sup,
+kbd,
+tt,
+s,
+strike,
+big,
+img,
+audio,
+video,
+figure,
+figcaption,
+form,
+input,
+textarea,
+button,
+select,
+option,
+optgroup,
+label,
+fieldset,
+legend,
+datalist,
+keygen,
+progress,
+meter,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+object,
+iframe,
+embed,
+br,
+hr,
+canvas {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  text-align: inherit;
+  vertical-align: baseline;
+}
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+/* Typography */
+body {
+  font: 1em / var(--leading__global) var(--font-stack__global);
+  background-color: var(--color__primary__yellow);
+  color: var(--color__secondary__black);
+}
+
+/* Main container */
+.site-container {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: var(--inner-spacing__container);
+}
+
+/* Card settings */
+.blog-card {
+  padding: var(--inner-spacing__card);
+  max-width: var(--width__card);
+  border-radius: var(--radius__card);
+  outline: 1px solid var(--color__secondary__black);
+  background-color: var(--color__primary__white);
+  box-shadow: var(--shadow__card);
+  transition: var(--transition__card);
+}
+.blog-card:hover,
+.blog-card:focus {
+  box-shadow: var(--shadow__card__hover);
+}
+
+/* Cover */
+.blog-card__cover {
+  height: var(--height__card-cover);
+  transition: var(--transition__card-cover);
+}
+.blog-card__cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius__card-cover);
+  transition: var(--transition__card-cover-img);
+}
+
+/* Blocks and sections */
+.blog-card__cover + .blog-card__header,
+.blog-card__content + .blog-card__footer {
+  margin-top: var(--gap__card-section);
+}
+
+.blog-card__tags + .blog-card__meta,
+.blog-card__meta + .blog-card__title,
+.blog-card__header + .blog-card__content {
+  margin-top: var(--gap__card-block);
+}
+
+/* Meta info */
+.blog-card__tag {
+  display: block;
+  text-decoration: none;
+  color: currentColor;
+  border-radius: var(--radius__tag);
+  background-color: var(--color__primary__yellow);
+  padding: var(--inner-spacing__card-meta__block)
+    var(--inner-spacing__card-meta__inline);
+}
+.blog-card__meta,
+.blog-card__tags {
+  font-size: var(--size__card-meta);
+}
+.blog-card__meta li,
+.blog-card__tags li {
+  display: block;
+}
+
+/* Title */
+.blog-card__title {
+  font-size: var(--size__card-title);
+}
+.blog-card__title a {
+  transition: var(--transition__card-title);
+  color: currentColor;
+  text-decoration: none;
+}
+.blog-card:hover .blog-card__title a,
+.blog-card:focus .blog-card__title a {
+  color: var(--color__primary__yellow);
+}
+
+/* Description */
+.blog-card__description {
+  color: var(--color__secondary__gray);
+  font-size: var(--size__card-description);
+}
+
+/* Author */
+.blog-card__author-avatar {
+  border-radius: var(--radius__avatar);
+}
+.blog-card__author span {
+  font-size: var(--size__card-author);
+}
+
+/* Common settings */
+.blog-card__title,
+.blog-card__author,
+.blog-card__tag {
+  font-weight: 800;
+}
+.blog-card__author,
+.blog-card__meta,
+.blog-card__tags ul {
+  display: flex;
+  align-items: center;
+  gap: var(--gap__card-block);
+}
+
+/* Credits */
+.attribution {
+  padding: var(--inner-spacing__attribution);
+  font-size: var(--size__attribution);
+  text-align: center;
+  opacity: var(--opacity__attribution);
+  transition: var(--transition__attribution);
+}
+.attribution a {
+  color: currentColor;
+}
+.attribution:hover,
+.site-container:hover + .attribution {
+  opacity: 1;
+}
+
+/* Desktop-only media settings */
+@media only screen and (min-width: 1024px) {
+  :root {
+    --size__card-description: 100%;
+    --size__card-meta: 87.5%;
+    --size__card-title: 1.5rem;
+  }
+}
