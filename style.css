@@ -177,7 +177,8 @@ body {
   padding: var(--inner-spacing__card);
   max-width: var(--width__card);
   border-radius: var(--radius__card);
-  outline: 1px solid var(--color__secondary__black);
+  /* outline: 1px solid var(--color__secondary__black); */
+  border: 1px solid var(--color__secondary__black);
   background-color: var(--color__primary__white);
   box-shadow: var(--shadow__card);
   transition: var(--transition__card);
